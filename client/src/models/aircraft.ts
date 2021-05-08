@@ -1,4 +1,4 @@
-import {Weapon} from './weapon.ts'
+import type {Weapon} from './weapon';
 
 export enum aircraftClass {
   scout,

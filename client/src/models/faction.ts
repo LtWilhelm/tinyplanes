@@ -1,5 +1,5 @@
-import { Weapon } from './weapon.ts'
-import { Aircraft } from './aircraft.ts';
+import type { Weapon } from './weapon';
+import type { Aircraft } from './aircraft';
 
 export class Upgrade {
   name: string;
