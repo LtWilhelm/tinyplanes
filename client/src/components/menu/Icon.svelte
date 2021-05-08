@@ -131,13 +131,14 @@
       opacity: 1;
     }
     to {
-      transform: translate(400px);
+      transform: translate(200px);
       opacity: 0;
+      display: none;
     }
   }
   @keyframes return {
     from {
-      transform: translate(400px);
+      transform: translate(200px);
       opacity: 0;
     }
     to {

@@ -10,17 +10,17 @@
       to: "/",
     },
     {
-      title: "Squadrons",
-      to: "/",
+      title: "Factions",
+      to: "/faction",
     },
     {
-      title: "Squadrons",
-      to: "/",
+      title: "Aircraft",
+      to: "/aircraft",
     },
-    {
-      title: "Squadrons",
-      to: "/",
-    },
+    // {
+    //   title: "Squadrons",
+    //   to: "/",
+    // },
   ];
 
   const close = () => {
@@ -62,8 +62,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -25vw;
-    transition: 0.3s ease-out;
+    left: -100vw;
+    transition: .6s ease-out;
   }
 
   menu.shown {
