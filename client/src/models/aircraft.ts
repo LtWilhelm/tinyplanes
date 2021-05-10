@@ -24,6 +24,7 @@ export class Aircraft {
     weapons: Weapon[];
   }[]
   points: number;
+  img?: string;
 
   constructor(a?: Aircraft) {
     this.name = a?.name || '';
@@ -40,5 +41,6 @@ export class Aircraft {
     this.weapons = a?.weapons || [];
     this.weaponSlots = a?.weaponSlots || [];
     this.points = a?.points || 0;
+    this.img = a?.img;
   }
 }

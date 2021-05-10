@@ -1,28 +1,5 @@
 export enum fireArc {
-  front, rear, right, left, up, down
-}
-
-export const getArc = (a: fireArc) => {
-  switch (a) {
-    case fireArc.front:
-      return 'Front';
-      break;
-    case fireArc.rear:
-      return 'Rear';
-      break;
-    case fireArc.left:
-      return 'Left';
-      break;
-    case fireArc.right:
-      return 'Right';
-      break;
-    case fireArc.up:
-      return 'Up';
-      break;
-    case fireArc.down:
-      return 'Down';
-      break;
-  }
+  Front, Rear, Right, Left, Up, Down
 }
 
 export class Weapon {

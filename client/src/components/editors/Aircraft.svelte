@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Aircraft, aircraftClass } from "../../models/aircraft";
-  import { fireArc, getArc } from "../../models/weapon";
+  import { fireArc } from "../../models/weapon";
 
   export let aircraft: Aircraft = new Aircraft();
   aircraft = {
@@ -10,7 +10,7 @@
     weapons: [
       {
         name: "Quad Big Shootas",
-        arc: [fireArc.front],
+        arc: [fireArc.Front],
         firepower: {
           short: 8,
           medium: 4,
@@ -28,7 +28,7 @@
   <header>
     <title>
       <h1>{aircraft.name}</h1>
-      <span>Class: {aircraft.class}</span>
+      <span>CLASS: {aircraftClass[aircraft.class].toUpperCase()}</span>
     </title>
     <points>
       <h1>{aircraft.points}</h1>
@@ -95,7 +95,7 @@
           {#each aircraft.weapons as weapon}
             <tr>
               <td>{weapon.name}</td>
-              <td>{weapon.arc.map((a) => getArc(a)).join(", ")}</td>
+              <td>{weapon.arc.map((a) => fireArc[a]).join(", ")}</td>
               <td
                 >{weapon.firepower.short}-{weapon.firepower.medium}-{weapon
                   .firepower.long}</td
@@ -129,9 +129,9 @@
     position: relative;
     display: block;
     padding: 1rem 0;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     aspect-ratio: 56/39;
-    width: 700px;
+    width: 800px;
     margin: 3rem auto;
     box-shadow: 5px 5px 10px #222;
   }
