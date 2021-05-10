@@ -23,6 +23,7 @@ export class Aircraft {
     max: number;
     weapons: Weapon[];
   }[]
+  points: number;
 
   constructor(a?: Aircraft) {
     this.name = a?.name || '';
@@ -38,5 +39,6 @@ export class Aircraft {
     this.maxAltitude = a?.maxAltitude || 5;
     this.weapons = a?.weapons || [];
     this.weaponSlots = a?.weaponSlots || [];
+    this.points = a?.points || 0;
   }
 }

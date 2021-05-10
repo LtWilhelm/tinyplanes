@@ -2,6 +2,29 @@ export enum fireArc {
   front, rear, right, left, up, down
 }
 
+export const getArc = (a: fireArc) => {
+  switch (a) {
+    case fireArc.front:
+      return 'Front';
+      break;
+    case fireArc.rear:
+      return 'Rear';
+      break;
+    case fireArc.left:
+      return 'Left';
+      break;
+    case fireArc.right:
+      return 'Right';
+      break;
+    case fireArc.up:
+      return 'Up';
+      break;
+    case fireArc.down:
+      return 'Down';
+      break;
+  }
+}
+
 export class Weapon {
   name: string;
   arc: fireArc[];
@@ -12,7 +35,7 @@ export class Weapon {
   }
   damage: number;
   ammo: number | 'UL';
-  special: string[];
+  special?: string[];
 
   constructor(w?: Weapon) {
     this.name = w?.name || '';
