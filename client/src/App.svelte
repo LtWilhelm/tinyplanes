@@ -21,7 +21,7 @@ import routes from './routes';
   main {
     width: 100vw;
     height: 100vh;
-    padding: 3rem 2rem 0;
-    
+    /* padding: 3rem 2rem 0; */
+    margin: 3rem 0;
   }
 </style>
