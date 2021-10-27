@@ -1,15 +1,15 @@
 <script lang="ts">
-  export let aceAbility: {
-    name: string;
-    description: string;
-  };
+import type { aceAbility } from "../../models/pilot";
+
+
+  export let aceAbility: aceAbility;
   export let pic: string;
 </script>
 
 <card>
   <img src={pic || "/img/not-found.jpg"} alt="" />
   <br />
-  <small>ORK PILOT</small>
+  <small><strong>{aceAbility.faction.toUpperCase()} PILOT</strong></small>
   <title><h3>ACE ABILITY</h3></title>
   <h3>{aceAbility.name}</h3>
   <p>{aceAbility.description}</p>

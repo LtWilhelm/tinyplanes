@@ -1,3 +1,4 @@
+import type { Pilot } from './pilot';
 import type {Weapon} from './weapon';
 
 export enum aircraftClass {
@@ -25,6 +26,7 @@ export class Aircraft {
   }[]
   points: number;
   img?: string;
+  pilot?: Pilot;
 
   constructor(a?: Aircraft) {
     this.name = a?.name || '';

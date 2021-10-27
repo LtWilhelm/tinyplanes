@@ -23,7 +23,7 @@
     // },
   ];
 
-  const close = () => {
+  const closeMenu = () => {
     shown = false;
   };
   // document.addEventListener('click', () => {
@@ -31,12 +31,12 @@
   // })
 </script>
 
-<div use:clickOutside on:click_outside={close}>
+<div use:clickOutside on:click_outside={closeMenu}>
   <!-- <button on:click={() => (shown = !shown)}>menu</button> -->
   <Icon on:click={() => (shown = !shown)} open={shown} />
   <menu class:shown>
     <h1>TINYPLANES</h1>
-    <ul on:click={close}>
+    <ul on:click={closeMenu}>
       {#each routes as { title, to }}
         <MenuItem {to} {title} />
       {/each}

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Aircraft, aircraftClass } from "../../models/aircraft";
   import { fireArc } from "../../models/weapon";
-import AceAbility from "./AceAbility.svelte";
+  import AceAbility from "./AceAbility.svelte";
 
   export let aircraft: Aircraft = new Aircraft();
   aircraft = {
@@ -123,7 +123,15 @@ import AceAbility from "./AceAbility.svelte";
     <small class="extras">Crew</small>
   </crew>
   <crew-cards>
-    <AceAbility aceAbility={{name: 'Speed Freek', description: 'Add +1 to all Short range hit rolls made by this aircraft when targeting an enemy aircraft travelling at a lower Speed than it.'}} />
+    <AceAbility
+      aceAbility={{
+        name: "Speed Freek",
+        description:
+          "Add +1 to all Short range hit rolls made by this aircraft when targeting an enemy aircraft travelling at a lower Speed than it.",
+        faction: "orks",
+      }}
+      pic=''
+    />
   </crew-cards>
 </card>
 
@@ -142,7 +150,7 @@ import AceAbility from "./AceAbility.svelte";
     z-index: -1;
   }
 
-  crew-cards{
+  crew-cards {
     position: absolute;
     top: 100%;
     left: 0;
@@ -193,8 +201,9 @@ import AceAbility from "./AceAbility.svelte";
     border-style: solid solid none solid;
   }
 
-  pilot small, crew small {
-    transform: translateY(-.5rem);
+  pilot small,
+  crew small {
+    transform: translateY(-0.5rem);
   }
 
   small.extras {
