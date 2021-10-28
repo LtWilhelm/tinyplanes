@@ -10,6 +10,10 @@
   /* --accent: #EF8354; */
   --light: #4F5D75;
   --lighter: #BFC0C0;
+
+  --small-width: 20rem;
+  --small-length: calc(var(--small-width) * 56 / 39);
+  --big-length: calc(var(--small-width) * 2.5);
 }
 
 body {
@@ -21,4 +25,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: lighter;
+}
+
+@media screen and (max-width: 425px) {
+  :root{
+    --small-width: calc(100vw / 2.5);
+  }
 }

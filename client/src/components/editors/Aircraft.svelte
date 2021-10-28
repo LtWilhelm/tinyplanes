@@ -2,6 +2,7 @@
   import { Aircraft, aircraftClass } from "../../models/aircraft";
   import { fireArc } from "../../models/weapon";
   import AceAbility from "./AceAbility.svelte";
+  import AircraftUpgrades from "./AircraftUpgrades.svelte";
 
   export let aircraft: Aircraft = new Aircraft();
   aircraft = {
@@ -25,103 +26,105 @@
   };
 </script>
 
-<card>
-  <header>
-    <title>
-      <h1>{aircraft.name}</h1>
-      <span>CLASS: {aircraftClass[aircraft.class].toUpperCase()}</span>
-    </title>
-    <points>
-      <h1>{aircraft.points}</h1>
-      <small>POINTS</small>
-    </points>
-  </header>
-  <card-body>
-    <img src={aircraft.img || "/img/not-found.jpg"} alt={aircraft.name} />
+<holder>
+  <card>
+    <header>
+      <title>
+        <h1>{aircraft.name}</h1>
+        <span>CLASS: {aircraftClass[aircraft.class].toUpperCase()}</span>
+      </title>
+      <points>
+        <h1>{aircraft.points}</h1>
+        <small>POINTS</small>
+      </points>
+    </header>
+    <card-body>
+      <img src={aircraft.img || "/img/not-found.jpg"} alt={aircraft.name} />
 
-    <stats>
-      <column>
-        <ul class="labels">
-          <li>STRUCTURE</li>
-          <li>TRANSPORT</li>
-          <li>FUEL</li>
-        </ul>
-        <ul class="values">
-          <li>{aircraft.structure}</li>
-          <li>{aircraft.transport ?? "-"}</li>
-          <li>{aircraft.fuel ?? "-"}</li>
-        </ul>
-      </column>
-      <column>
-        <ul class="labels">
-          <li>THROTTLE</li>
-          <li>ACE MANOUVRES</li>
-          <li>HANDLING</li>
-        </ul>
-        <ul class="values">
-          <li>{aircraft.throttle}</li>
-          <li>
-            {aircraft.aceManouvres[0] || 1} - {aircraft.aceManouvres[1] || 8}
-          </li>
-          <li>{aircraft.handling}+</li>
-        </ul>
-      </column>
-      <column>
-        <ul class="labels">
-          <li>MIN SPEED</li>
-          <li>MAX SPEED</li>
-          <li>MAX ALTITUDE</li>
-        </ul>
-        <ul class="values">
-          <li>{aircraft.minSpeed}</li>
-          <li>{aircraft.maxSpeed}</li>
-          <li>{aircraft.maxAltitude}</li>
-        </ul>
-      </column>
-    </stats>
+      <stats>
+        <column>
+          <ul class="labels">
+            <li>STRUCTURE</li>
+            <li>TRANSPORT</li>
+            <li>FUEL</li>
+          </ul>
+          <ul class="values">
+            <li>{aircraft.structure}</li>
+            <li>{aircraft.transport ?? "-"}</li>
+            <li>{aircraft.fuel ?? "-"}</li>
+          </ul>
+        </column>
+        <column>
+          <ul class="labels">
+            <li>THROTTLE</li>
+            <li>ACE MANOUVRES</li>
+            <li>HANDLING</li>
+          </ul>
+          <ul class="values">
+            <li>{aircraft.throttle}</li>
+            <li>
+              {aircraft.aceManouvres[0] || 1} - {aircraft.aceManouvres[1] || 8}
+            </li>
+            <li>{aircraft.handling}+</li>
+          </ul>
+        </column>
+        <column>
+          <ul class="labels">
+            <li>MIN SPEED</li>
+            <li>MAX SPEED</li>
+            <li>MAX ALTITUDE</li>
+          </ul>
+          <ul class="values">
+            <li>{aircraft.minSpeed}</li>
+            <li>{aircraft.maxSpeed}</li>
+            <li>{aircraft.maxAltitude}</li>
+          </ul>
+        </column>
+      </stats>
 
-    {#if aircraft.weapons.length}
-      <table>
-        <thead>
-          <tr>
-            <th>WEAPON</th>
-            <th>FIRE ARC</th>
-            <th>FPR</th>
-            <th>DMG</th>
-            <th>AMMO</th>
-            <th>SPECIAL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each aircraft.weapons as weapon}
+      {#if aircraft.weapons.length}
+        <table>
+          <thead>
             <tr>
-              <td>{weapon.name}</td>
-              <td>{weapon.arc.map((a) => fireArc[a]).join(", ")}</td>
-              <td
-                >{weapon.firepower.short}-{weapon.firepower.medium}-{weapon
-                  .firepower.long}</td
-              >
-              <td>{weapon.damage}</td>
-              <td>{weapon.ammo}</td>
-              <td>{weapon.special.join(", ") || "-"}</td>
+              <th>WEAPON</th>
+              <th>FIRE ARC</th>
+              <th>FPR</th>
+              <th>DMG</th>
+              <th>AMMO</th>
+              <th>SPECIAL</th>
             </tr>
-          {/each}
-        </tbody>
-      </table>
-    {/if}
-  </card-body>
-  <upgrades>
-    <small class="extras">Aircraft Upgrades</small>
-  </upgrades>
-  <weapons>
-    <small class="extras">Additional Weapons</small>
-  </weapons>
-  <pilot>
-    <small class="extras">Pilot</small>
-  </pilot>
-  <crew>
-    <small class="extras">Crew</small>
-  </crew>
+          </thead>
+          <tbody>
+            {#each aircraft.weapons as weapon}
+              <tr>
+                <td>{weapon.name}</td>
+                <td>{weapon.arc.map((a) => fireArc[a]).join(", ")}</td>
+                <td>
+                  {weapon.firepower.short}-{weapon.firepower.medium}-{weapon
+                    .firepower.long}
+                </td>
+                <td>{weapon.damage}</td>
+                <td>{weapon.ammo}</td>
+                <td>{weapon.special.join(", ") || "-"}</td>
+              </tr>
+            {/each}
+          </tbody>
+        </table>
+      {/if}
+    </card-body>
+    <upgrades>
+      <small class="extras">Aircraft Upgrades</small>
+    </upgrades>
+    <weapons>
+      <small class="extras">Additional Weapons</small>
+    </weapons>
+    <pilot>
+      <small class="extras">Pilot</small>
+    </pilot>
+    <crew>
+      <small class="extras">Crew</small>
+    </crew>
+  </card>
   <crew-cards>
     <AceAbility
       aceAbility={{
@@ -130,10 +133,20 @@
           "Add +1 to all Short range hit rolls made by this aircraft when targeting an enemy aircraft travelling at a lower Speed than it.",
         faction: "orks",
       }}
-      pic=''
+      pic=""
     />
   </crew-cards>
-</card>
+  <upgrade-cards>
+    <AircraftUpgrades
+      upgrade={{
+        name: "Wazmek Speshul",
+        description:
+          "Increase both the Max Speed and Min Speed characteristics of this aircraft by 1, up to a maximum of 9.",
+      }}
+      pic=""
+    />
+  </upgrade-cards>
+</holder>
 
 <style>
   card {
@@ -143,18 +156,40 @@
     padding: 1rem 0;
     border-radius: 2rem;
     aspect-ratio: 56/39;
-    width: 800px;
+    width: 100%;
     max-width: 100vw;
-    margin: 1rem auto;
     box-shadow: 5px 5px 10px #222;
     z-index: -1;
+    grid-column-start: 2;
+  }
+  holder {
+    margin: 1rem auto;
+    grid-gap: 1rem;
+    display: grid;
+    grid-template-columns: var(--small-length) var(--big-length) var(--small-length);
+    grid-template-rows: auto auto;
+    height: max-content;
   }
 
   crew-cards {
-    position: absolute;
+    /* position: absolute;
     top: 100%;
     left: 0;
-    right: 0;
+    right: 0; */
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: block;
+  }
+  upgrade-cards {
+    /* position: absolute;
+    right: 100%;
+    bottom: 0;
+    top: 0; */
+    /* width: max-content; */
+    display: block;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
   }
 
   upgrades {

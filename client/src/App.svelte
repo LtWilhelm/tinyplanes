@@ -23,5 +23,6 @@ import routes from './routes';
     height: 100vh;
     /* padding: 3rem 2rem 0; */
     margin: 3rem 0;
+    display: grid;
   }
 </style>

@@ -1,26 +1,23 @@
 <script lang="ts">
-import type { aceAbility } from "../../models/pilot";
+  import type { AircraftUpgrade } from "../../models/upgrade";
 
-
-  export let aceAbility: aceAbility;
+  export let upgrade: AircraftUpgrade;
   export let pic: string;
 </script>
 
 <card>
   <img src={pic || "/img/not-found.jpg"} alt="" />
   <br />
-  <small><strong>{aceAbility.faction.toUpperCase()} PILOT</strong></small>
-  <title><h3>ACE ABILITY</h3></title>
-  <h3>{aceAbility.name}</h3>
-  <p>{aceAbility.description}</p>
+  <title><h3>{upgrade.name}</h3></title>
+  <p>{upgrade.description}</p>
 </card>
 
 <style>
   card {
     display: block;
-    aspect-ratio: 39/56;
+    aspect-ratio: 56/39;
     text-align: center;
-    width: var(--small-width);
+    height: var(--small-width);
     padding: 1rem 0;
     background-color: var(--lighter);
     border-radius: 1rem;
