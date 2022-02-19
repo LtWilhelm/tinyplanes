@@ -1,3 +1,4 @@
+import type { Pilot } from './pilot';
 import type {Weapon} from './weapon';
 
 export enum aircraftClass {
@@ -23,6 +24,9 @@ export class Aircraft {
     max: number;
     weapons: Weapon[];
   }[]
+  points: number;
+  img?: string;
+  pilot?: Pilot;
 
   constructor(a?: Aircraft) {
     this.name = a?.name || '';
@@ -38,5 +42,7 @@ export class Aircraft {
     this.maxAltitude = a?.maxAltitude || 5;
     this.weapons = a?.weapons || [];
     this.weaponSlots = a?.weaponSlots || [];
+    this.points = a?.points || 0;
+    this.img = a?.img;
   }
 }

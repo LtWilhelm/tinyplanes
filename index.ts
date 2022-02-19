@@ -1,4 +1,4 @@
-import { Application, send, Router } from "oak";
+import { Application, send } from "oak";
 
 import { configureRoutes } from './routes/index.ts';
 

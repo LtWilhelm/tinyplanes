@@ -1,5 +1,5 @@
 export enum fireArc {
-  front, rear, right, left, up, down
+  Front, Rear, Right, Left, Up, Down
 }
 
 export class Weapon {
@@ -12,7 +12,7 @@ export class Weapon {
   }
   damage: number;
   ammo: number | 'UL';
-  special: string[];
+  special?: string[];
 
   constructor(w?: Weapon) {
     this.name = w?.name || '';
